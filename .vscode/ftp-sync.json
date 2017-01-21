@@ -1,0 +1,16 @@
+{
+    "remotePath": "./",
+    "host": "116.255.235.26",
+    "username": "netCarServer",
+    "password": "huo15com",
+    "port": 21,
+    "protocol": "ftp",
+    "uploadOnSave": false,
+    "passive": false,
+    "debug": false,
+    "privateKeyPath": null,
+    "ignore": [
+        "\\.vscode",
+        "\\.git"
+    ]
+}

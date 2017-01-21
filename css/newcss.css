@@ -1,0 +1,522 @@
+*,input { 
+    margin: 0; 
+    padding: 0; 
+    border: 0; 
+    outline: 0; 
+    font-weight: normal; 
+    font-style: normal; 
+    font-size: 100%; 
+   
+
+} 
+h1,h2,h3,h4,h5,h6
+{
+	font-weight:bold;
+	}
+body { 
+    line-height: 1 
+} 
+:focus { 
+    outline: 0 
+} 
+ol, ul { 
+    list-style: none 
+} 
+
+blockquote:before, blockquote:after, q:before, q:after { 
+    content: ¡°¡± 
+} 
+blockquote, q { 
+    quotes: ¡°¡± ¡°¡± 
+} 
+input, textarea { 
+    margin: 0; 
+    padding: 0 
+} 
+hr { 
+    margin: 0; 
+    padding: 0; 
+    border: 0; 
+    color: #000; 
+    background-color: #000; 
+    height: 1px 
+}
+body
+{
+	font-family:SimSun;
+	 font-size:14px;
+	 background-color:White;
+	 padding:0; 
+	 margin:0;
+}
+form
+{
+	padding:0; 
+	 margin:0;
+	}
+.input
+{
+	 border:solid 1px #c7ccd0;
+	 line-height:20px;
+	
+	 font-size:14px;
+}
+.input_date
+{
+ background:url(/images/calendar.gif) no-repeat right center;	
+}
+.submit
+{
+	border:none;
+	background-color:white;
+	background-image:url(../images/submit.gif);
+	color:White;
+	width:108px;
+	height:33px;
+	cursor:pointer;
+	vertical-align:middle;	
+	line-height:33px;
+	 text-align:center;
+	  font-weight:bold;
+	  font-size:13px;
+}
+.rest
+{
+	border:none;
+	background-color:white;
+	background-image:url(../images/rest.gif);
+	color:#3a8dd3;
+	width:108px;
+	 height:33px;
+	 cursor:pointer;
+	 vertical-align:middle;
+	 line-height:33px;
+	 text-align:center;
+	 font-weight:bold;
+	  font-size:13px;
+}
+.btn_print
+{
+     background-color:#f3f4f8;
+ border:solid 1px #8dbcda;
+ width:60px;
+ height:25px;
+ line-height:25px;
+ text-align:center;
+ font-size:12px;
+ background:url(../images/icons/print.gif) no-repeat 3px 4px #effafe;
+ padding-left:8px;
+ cursor:pointer;
+ margin-right:20px;
+    }
+    .btn_over
+{
+     background-color:#f3f4f8;
+ border:solid 1px #8dbcda;
+ width:60px;
+ height:25px;
+ line-height:25px;
+ text-align:center;
+ font-size:12px;
+ background:url(../images/icons/scrap.png) no-repeat 3px 4px #effafe;
+ padding-left:8px;
+ cursor:pointer;
+ margin-right:20px;
+    }
+.btn_cog
+{
+     background-color:#f3f4f8;
+ border:solid 1px #8dbcda;
+ width:60px;
+ height:25px;
+ line-height:25px;
+ text-align:center;
+ font-size:12px;
+ background:url(../images/icons/cog.png) no-repeat 3px 4px #effafe;
+ padding-left:8px;
+ cursor:pointer;
+ margin-right:20px;
+    }
+.btn_scrap
+{
+     background-color:#f3f4f8;
+ border:solid 1px #8dbcda;
+ width:60px;
+ height:25px;
+ line-height:25px;
+ text-align:center;
+ font-size:12px;
+ background:url(../images/icons/scrap.png) no-repeat 3px 4px #effafe;
+ padding-left:8px;
+ cursor:pointer;
+ margin-right:20px;
+    }
+.btn_return
+{
+     background-color:#f3f4f8;
+ border:solid 1px #8dbcda;
+ width:60px;
+ height:25px;
+ line-height:25px;
+ text-align:center;
+ font-size:12px;
+ background:url(../images/icons/folder_table.png) no-repeat 3px 4px #effafe;
+ padding-left:8px;
+ cursor:pointer;
+ margin-right:20px;
+    }
+    .btn_turn
+{
+     background-color:#f3f4f8;
+ border:solid 1px #8dbcda;
+ width:60px;
+ height:25px;
+ line-height:25px;
+ text-align:center;
+ font-size:12px;
+ background:url(../images/icons/tj.gif) no-repeat 3px 4px #effafe;
+ padding-left:8px;
+ cursor:pointer;
+ margin-right:20px;
+    }
+.btn_add
+{
+ background-color:#f3f4f8;
+ border:solid 1px #8dbcda;
+ width:60px;
+ height:25px;
+ line-height:25px;
+ text-align:center;
+ font-size:12px;
+ background:url(../images/icons/page_add.png) no-repeat 3px 4px #effafe;
+ padding-left:8px;
+ cursor:pointer;
+ margin-right:20px;
+}
+.btn_add_folder
+{
+ background-color:#f3f4f8;
+ border:solid 1px #8dbcda;
+ width:60px;
+ height:25px;
+ line-height:25px;
+ text-align:center;
+ font-size:12px;
+ background:url(../images/icons/folder_page_add.png) no-repeat 3px 4px #effafe;
+ padding-left:8px;
+ cursor:pointer;
+ margin-right:20px;
+}
+.btn_download
+{
+ background-color:#f3f4f8;
+ border:solid 1px #8dbcda;
+ width:60px;
+ height:25px;
+ line-height:25px;
+ text-align:center;
+ font-size:12px;
+ background:url(../images/icons/download.png) no-repeat 3px 4px #effafe;
+ padding-left:8px;
+ cursor:pointer;
+ margin-right:20px;
+}
+.btn_upload
+{
+ background-color:#f3f4f8;
+ border:solid 1px #8dbcda;
+ width:60px;
+ height:25px;
+ line-height:25px;
+ text-align:center;
+ font-size:12px;
+ background:url(../images/icons/upload.png) no-repeat 3px 4px #effafe;
+ padding-left:8px;
+ cursor:pointer;
+ margin-right:20px;
+}
+.btn_move
+{
+ background-color:#f3f4f8;
+ border:solid 1px #8dbcda;
+ width:60px;
+ height:25px;
+ line-height:25px;
+ text-align:center;
+ font-size:12px;
+ background:url(../images/icons/foward.png) no-repeat 3px 4px #effafe;
+ padding-left:8px;
+ cursor:pointer;
+ margin-right:20px;
+}
+.btn_edit
+{
+ background-color:#f3f4f8;
+ border:solid 1px #8dbcda;
+ width:60px;
+ height:25px;
+ line-height:25px;
+ text-align:center;
+ font-size:12px;
+ background:url(../images/icons/page_white_edit.png) no-repeat 3px 4px #effafe;
+ padding-left:8px;
+ cursor:pointer;
+ margin-right:20px;
+}
+.btn_del
+{
+ background-color:#f3f4f8;
+ border:solid 1px #8dbcda;
+ width:60px;
+ height:25px;
+ line-height:25px;
+ text-align:center;
+ font-size:12px;
+  background:url(../images/icons/page_white_delete.png) no-repeat 3px 4px #effafe;
+   padding-left:8px;
+   cursor:pointer;
+   margin-right:20px;
+}
+.btn_save
+{
+ background-color:#f3f4f8;
+ border:solid 1px #8dbcda;
+ width:60px;
+ height:25px;
+ line-height:25px;
+ text-align:center;
+ font-size:12px;
+  background:url(../images/icons/save.gif) no-repeat 3px 4px #effafe;
+   padding-left:8px;
+   cursor:pointer;
+   margin-right:20px;
+}
+.btn_ok
+{
+ background-color:#f3f4f8;
+ border:solid 1px #8dbcda;
+ width:60px;
+ height:25px;
+ line-height:25px;
+ text-align:center;
+ font-size:12px;
+  background:url(../images/icons/ok.png) no-repeat 3px 4px #effafe;
+   padding-left:8px;
+   cursor:pointer;
+   margin-right:20px;
+}
+.btn_clear
+{
+ background-color:#f3f4f8;
+ border:solid 1px #8dbcda;
+ width:60px;
+ height:25px;
+ line-height:25px;
+ text-align:center;
+ font-size:12px;
+  background:url(../images/icons/clear.png) no-repeat 3px 4px #effafe;
+   padding-left:8px;
+   cursor:pointer;
+   margin-right:20px;
+}
+
+.btn_set
+{
+ background-color:#f3f4f8;
+ border:solid 1px #8dbcda;
+ width:60px;
+ height:25px;
+ line-height:25px;
+ text-align:center;
+ font-size:12px;
+ background:url(../images/icons/page_gear.png) no-repeat 3px 4px #effafe;
+ padding-left:8px;
+ cursor:pointer;
+ margin-right:20px;
+}
+.btn_look
+{
+ background-color:#f3f4f8;
+ border:solid 1px #8dbcda;
+ width:60px;
+ height:25px;
+ line-height:25px;
+ text-align:center;
+ font-size:12px;
+ background:url(../images/icons/color_swatch.png) no-repeat 3px 4px #effafe;
+ padding-left:8px;
+ cursor:pointer;
+ margin-right:20px;
+}
+
+.btn_into
+{
+ background-color:#f3f4f8;
+ border:solid 1px #8dbcda;
+ width:66px;
+ height:25px;
+ line-height:25px;
+ text-align:center;
+ font-size:12px;
+ background:url(../images/icons/excel.gif) no-repeat 3px 4px #effafe;
+ padding-left:14px;
+ cursor:pointer;
+ margin-right:20px;
+}
+.btn_share
+{
+ background-color:#f3f4f8;
+ border:solid 1px #8dbcda;
+ width:60px;
+ height:25px;
+ line-height:25px;
+ text-align:center;
+ font-size:12px;
+ background:url(../images/icons/share.png) no-repeat 3px 4px #effafe;
+ padding-left:14px;
+ cursor:pointer;
+ margin-right:20px;
+}
+.btn_cancel_share
+{
+ background-color:#f3f4f8;
+ border:solid 1px #8dbcda;
+ width:60px;
+ height:25px;
+ line-height:25px;
+ text-align:center;
+ font-size:12px;
+ background:url(../images/icons/cancel_share.png) no-repeat 3px 4px #effafe;
+ padding-left:14px;
+ cursor:pointer;
+ margin-right:20px;
+}
+.btn_sel
+{
+ background-color:#f3f4f8;
+ border:solid 1px #8dbcda;
+ width:66px;
+ height:25px;
+ line-height:25px;
+ text-align:center;
+ font-size:12px;
+ background:url(../images/icons/coins.png) no-repeat 3px 4px #effafe;
+ padding-left:14px;
+ cursor:pointer;
+ margin-right:20px;
+}
+.btn_chart
+{
+ background-color:#f3f4f8;
+ border:solid 1px #8dbcda;
+ width:66px;
+ height:25px;
+ line-height:25px;
+ text-align:center;
+ font-size:12px;
+ background:url(../images/icons/chart.png) no-repeat 3px 4px #effafe;
+ padding-left:14px;
+ cursor:pointer;
+ margin-right:20px;
+}
+.btn_refresh
+{
+ background-color:#f3f4f8;
+ border:solid 1px #8dbcda;
+ width:60px;
+ height:25px;
+ line-height:25px;
+ text-align:center;
+ font-size:12px;
+ background:url(../images/icons/sx.png) no-repeat 3px 4px #effafe;
+ padding-left:8px;
+ cursor:pointer;
+ margin-right:20px;
+}
+.btn_go
+{
+ background-color:#f3f4f8;
+ border:solid 1px #8dbcda;
+ width:60px;
+ height:25px;
+ line-height:25px;
+ text-align:center;
+ font-size:12px;
+ background:url(../images/icons/tj.gif) no-repeat 3px 4px #effafe;
+ padding-left:8px;
+ cursor:pointer;
+ margin-right:20px;
+}
+.btn_examine
+{
+ background-color:#f3f4f8;
+ border:solid 1px #8dbcda;
+ width:66px;
+ height:25px;
+ line-height:25px;
+ text-align:center;
+ font-size:12px;
+ background:url(../images/icons/shenhe.gif) no-repeat 3px 4px #effafe;
+ padding-left:14px;
+ cursor:pointer;
+ margin-right:20px;
+}
+
+.btn_assess
+{
+ border:solid 1px #8dbcda;
+ width:66px;
+ height:25px;
+ line-height:25px;
+ text-align:center;
+ font-size:12px;
+ background:url(../images/icons/page_add.png) no-repeat 3px 4px #effafe;
+ padding-left:14px;
+ cursor:pointer;
+ margin-right:20px;
+}
+.btn-switch {
+    background: url("../images/btn-switch.png") no-repeat scroll 0 0;
+    cursor: pointer;
+    height: 27px;   
+    width: 148px;
+    float:right;
+}
+
+.switch-content {
+    height: 100%;
+    width: 100%;
+}
+.switch-content .smallsel {
+    background: url("../images/swith-thumb-s.png") no-repeat scroll 0 0;
+    height: 27px;
+    width: 35px;
+}
+.switch-content .sel {
+    color: #595d68;
+    background: url("../images/swith-thumb.png") no-repeat scroll 0 0;
+    height: 27px;
+    width: 74px;
+}
+.switch-content div {
+    color: #989898;
+    float: left;
+    font-size: 12px;
+    line-height: 27px;
+    text-align: center;
+    width: 74px;
+}
+#container {
+    margin-left: auto;
+    margin-right: auto;
+}
+#content {
+    
+    width: auto;
+     
+}
+#infobox {
+    float: left;
+  
+    width: 365px;
+}

@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="notify_url_rechange.aspx.cs" Inherits="web_notify_url_rechange" %>

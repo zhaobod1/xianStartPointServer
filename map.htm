@@ -1,0 +1,304 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>坐标拾取</title>
+
+    <script src="js/jquery-1.7.2.js" type="text/javascript"></script>
+
+    <!--[if IE 6]> 
+    <script src="js/PIE_IE678.js" type="text/javascript"></script>
+<![endif]-->
+    <!--[if IE 7]> 
+    <script src="js/PIE_IE678.js" type="text/javascript"></script>
+<![endif]-->
+    <!--[if IE 8]> 
+    <script src="js/PIE_IE678.js" type="text/javascript"></script>
+<![endif]-->
+    <!--[if IE 9]> 
+    <script src="js/PIE_IE9.js" type="text/javascript"></script>
+<![endif]-->
+
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.5&ak=FC9c13967bf240823ed03d702d883e83"></script>
+
+    <style>
+        html, body
+        {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            font-size: 13px;
+        }
+        div#dituContent
+        {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        td
+        {
+            height: 40px;
+            line-height: 40px;
+        }
+        .btn_sel
+        {
+            background: url("images/submit.png") no-repeat scroll 0 0 transparent;
+            cursor: pointer;
+            display: inline-block;
+            height: 33px;
+            line-height: 33px;
+            width: 108px;
+            overflow: visible;
+            vertical-align: top;
+            color: #fff;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+        #search_result
+        {
+            padding-left: 5px;
+        }
+        #search_result li
+        {
+            list-style: none;
+            cursor: pointer;
+            overflow: hidden;           
+        }
+        #search_result li span
+        {                              
+            width: 19px;
+            height:25px;
+            line-height:25px;
+            float:left;
+             clear:both;
+        }
+        #search_result li div
+        {     padding: 5px;        
+           float:left;
+        }
+         #search_result li div p
+        {
+             margin:0;
+             padding:0;
+        }
+        #search_result li:hover
+        {
+            background-color: #F0F0F0;
+        }
+         #search_result li:hover span
+        {
+            background-color: Transparent;
+        }
+        #search_result li a
+        {
+            color: blue;
+        }
+    </style>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".btn_sel").click(function() {
+                search();
+            });
+            $(".btn_OKr").click(function() {
+                window.returnValue = $("#Text2").val() + "|" + $("#Text3").val() + "|" + $("#Text4").val();
+                window.close();
+            });
+            $("#search_result li").live("click", function() {
+                $("#Text2").val($(this).find("a").text());
+                $("#Text3").val($(this).attr("lat"));
+                $("#Text4").val($(this).attr("lon"));
+            });
+        });
+    </script>
+
+</head>
+<body style="position: relative;">
+    <div style="width: 100%; height: 10%; border-bottom: solid 1px #ccc;">
+        <div id="div_search">
+            <table cellpadding="0" cellspacing="0" border="0" style="margin: 10px auto;">
+                <tr>
+                    <td align="right">
+                        地址关键字：
+                    </td>
+                    <td>
+                        <input class="input" style="width: 200px; border: 1px solid #c7ccd0; font-size: 14px;
+                            line-height: 25px; height: 25px; margin: 5px; padding: 2px;" id="Text1" value=""
+                            type="text" />
+                        <input id="Text3" type="hidden" />
+                        <input id="Text4" type="hidden" />
+                    </td>
+                    <td align="center">
+                        <div class="btn_sel" style="margin: 3px 0 0 0;">
+                            查 询</div>
+                        <input class="input" style="width: 150px; border: 1px solid #c7ccd0; font-size: 14px;
+                            line-height: 25px; height: 25px; margin: 5px; padding: 2px;" id="Text2" value=""
+                            type="text" />
+                        <div class="btn_sel btn_OKr" style="margin: 3px 0 0 0;">
+                            确 定</div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="dituContent" style="float: left; border-right: solid 1px #ccc; height: 87%;
+        width: 74%;">
+    </div>
+    <div style="float: left; width: 25%; height: 80%;">
+        <ul id="search_result">
+            <li>输入关键字查询</li></ul>
+    </div>
+
+    <script type="text/javascript">
+
+        var firstPage = false;
+        var map = new BMap.Map("dituContent");
+        //创建和初始化地图函数：
+        function initMap() {
+            createMap(); //创建地图
+            setMapEvent(); //设置地图事件
+            addMapControl(); //向地图添加控件           
+        }
+
+        //创建地图函数：
+        function createMap() {
+            map = new BMap.Map("dituContent"); //在百度地图容器中创建一个地图
+
+            map.centerAndZoom(cityName, 11); //设定地图的中心点和坐标并将地图显示在地图容器中
+            window.map = map; //将map变量存储在全局
+            map.addEventListener("tilesloaded", function() { if (!firstPage) { searchMap(); firstPage = true; } });
+        }
+
+        //地图事件设置函数：
+        function setMapEvent() {
+            map.enableDragging(); //启用地图拖拽事件，默认启用(可不写)
+            map.enableScrollWheelZoom(); //启用地图滚轮放大缩小
+            map.enableDoubleClickZoom(); //启用鼠标双击放大，默认启用(可不写)
+            map.enableKeyboard(); //启用键盘上下左右键移动地图
+            map.setDefaultCursor("default");
+
+        }
+        function set_pop(p) {
+            $("#Text1").val(p);
+            var point = new BMap.Point(p.split(',')[0], p.split(',')[1]);
+            var myIcon = new BMap.Icon("/images/markers_new_wn5i2b_blue.png", new BMap.Size(36, 78), {
+                offset: new BMap.Size(10, 25),
+                imageOffset: new BMap.Size(0, 0)
+            });
+            var marker = new BMap.Marker(point, { icon: myIcon })
+
+            map.addOverlay(marker);
+            marker.addEventListener("mouseover", function(e) {
+                this.setIcon(new BMap.Icon("/images/markers_new_wn5i2b_blue.png", new BMap.Size(36, 78), {
+                    offset: new BMap.Size(10, 25),
+                    imageOffset: new BMap.Size(-34, 0)
+                }));
+            });
+            marker.addEventListener("mouseout", function() {
+                this.setIcon(new BMap.Icon("/images/markers_new_wn5i2b_blue.png", new BMap.Size(36, 78), {
+                    offset: new BMap.Size(10, 25),
+                    imageOffset: new BMap.Size(0, 0)
+                }));
+            });
+        }
+        //地图控件添加函数：
+        function addMapControl() {
+            //向地图中添加缩放控件
+            var ctrl_nav = new BMap.NavigationControl({ anchor: BMAP_ANCHOR_TOP_LEFT, type: BMAP_NAVIGATION_CONTROL_LARGE });
+            map.addControl(ctrl_nav);
+        }
+
+        var cityName;
+        var ower_lng;
+        var ower_lat;
+        function myFun(result) {
+            cityName = result.name;
+            initMap();
+
+        }
+        var myCity = new BMap.LocalCity();
+        myCity.get(myFun);
+
+        var styleOptions = {
+            strokeColor: "red",    //边线颜色。
+            fillColor: "red",      //填充颜色。当参数为空时，圆形将没有填充效果。
+            strokeWeight: 1,       //边线的宽度，以像素为单位。
+            strokeOpacity: 0.5,    //边线透明度，取值范围0 - 1。
+            fillOpacity: 0.1,      //填充的透明度，取值范围0 - 1。
+            strokeStyle: 'solid' //边线的样式，solid或dashed。
+        };
+        window.openInfoWinFuns = null;
+        openInfoWinFuns = [];
+        function searchMap() {
+            // 创建地址解析器实例
+            var myGeo = new BMap.Geocoder();
+            // 将地址解析结果显示在地图上,并调整地图视野
+            myGeo.getPoint($("#Text1").val(), function(point) {
+                if (point) {
+                    ower_lng = point.lng;
+                    ower_lat = point.lat;
+                }
+                else {
+                    ower_lng = map.getCenter().lng;
+                    ower_lat = map.getCenter().lat;
+                }
+
+
+            }, cityName);
+        }
+       
+        var load = false;
+        var city = new BMap.LocalSearch(map, { renderOptions: { map: map, autoViewport: true} });
+        function search() {
+            load = false;
+            $("#search_result li").remove(); //每次生成前清空文本域
+            map.clearOverlays(); //清除地图上所有标记
+            var c = cityName;
+            city.search(c); //查找城市
+            var s = $("#Text1").val();
+            var ls = new BMap.LocalSearch(c);
+            ls.search(s);
+            var i = 1;
+            ls.setSearchCompleteCallback(function(rs) {
+
+                if (ls.getStatus() == BMAP_STATUS_SUCCESS && !load) {
+                    for (j = 0; j < 10; j++) {
+                        var poi = rs.getPoi(j);
+                        var marker = new BMap.Marker(poi.point);
+                        map.addOverlay(marker); //如果查询到，则添加红色marker
+                        $("#search_result").append("<li lat='" + poi.point.lng + "' lon='" + poi.point.lat + "'><span id=\"mk_0\">" + (j + 1) + "、</span><div><a href='#'>" + poi.title + "</a><p>" + poi.address + "</p></div></li>");
+                        var opts = {
+                            width: 200,     // 信息窗口宽度
+                            height: 100,     // 信息窗口高度
+                            title: poi.title // 信息窗口标题
+
+                        }
+
+                        marker.addEventListener("click", function() {
+                            //this.openInfoWindow(infoWindow);
+                        });
+                        $("#search_result li:last").click(function() {
+                            var opts = {
+                                width: 200,     // 信息窗口宽度
+                                height: 100,     // 信息窗口高度
+                                title: $(this).find("a").text() // 信息窗口标题
+
+                            }
+                            var infoWindow = new BMap.InfoWindow("地址：" + $(this).find("p").text(), opts);  // 创建信息窗口对象
+                            var point = new BMap.Point($(this).attr("lat"), $(this).attr("lon"));
+                            map.openInfoWindow(infoWindow, point);
+                        });
+                    }
+                    if (rs.getPageIndex != rs.getNumPages()) {
+                        ls.gotoPage(i);
+                        i = i + 1;
+                    }
+                    load = true;
+                }
+            });
+        }
+       
+    </script>
+
+</body>
+</html>
