@@ -35,8 +35,7 @@
     <script src="../js/main.js" type="text/javascript"></script>
 
     <style>
-        #preview
-        {
+        #preview {
             position: absolute;
             border: 1px solid #ccc;
             background: #333;
@@ -44,13 +43,12 @@
             display: none;
             color: #fff;
         }
-       
-        td
-        {
+
+        td {
             height: 34px;
         }
-        span
-        {
+
+        span {
             width: 90%;
             font-size: 14px;
             line-height: 20px;
@@ -58,8 +56,8 @@
             padding: 2px;
             display: block;
         }
-        #preview
-        {
+
+        #preview {
             position: absolute;
             border: 1px solid #ccc;
             background: #333;
@@ -67,158 +65,142 @@
             display: none;
             color: #fff;
         }
-  
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div id="container">
-        <div id="content" style="overflow-y: auto;">
-            <table width="100%" cellpadding="0" cellspacing="0">
-                <input class="input" style="width: 150px;" id="car_pk" type="hidden" value="<%=edit_pk %>" />
-                
-                <tr>
-                    <td style="background-color: #F4F2F3; text-align: right;">
-                       车型：
-                    </td>
-                    <td >
-                        <span id="car_name"></span>
-                    </td>
-               
-                    <td style="background-color: #F4F2F3; text-align: right;">
-                        图片：
-                    </td>
-                    <td>
-                        <span id="car_img_span"></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="background-color: #F4F2F3; text-align: right;">
-                        起租价：
-                    </td>
-                    <td >
-                        <span id="car_start_price"></span>
-                    </td>
-                     <td style="background-color: #F4F2F3; text-align: right;">
-                        起租价包含里程：
-                    </td>
-                    <td>
-                        <span id="car_meal_away"></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="background-color: #F4F2F3; text-align: right;">
-                        里程费：
-                    </td>
-                    <td>
-                        <span id="car_away_price"></span>
-                    </td>
-              
-                    <td style="background-color: #F4F2F3; text-align: right;">
-                        时长费：
-                    </td>
-                    <td>
-                        <span id="car_time_price"></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="background-color: #F4F2F3; text-align: right;">
-                        远途费：
-                    </td>
-                    <td>
-                        <span id="car_far_price"></span>
-                    </td>
-               
-                    <td style="background-color: #F4F2F3; text-align: right;">
-                        远途标准：
-                    </td>
-                    <td>
-                        <span id="car_far_away"></span>
-                    </td>
-                </tr>
-                <tr style="display:none;">
-                    <td style="background-color: #F4F2F3; text-align: right;">
-                        套餐价：
-                    </td>
-                    <td colspan="3">
-                        <span id="car_meal_price"></span>
-                    </td>
-                </tr>
-                <tr style="display:none;">
-                   
-              
-                    <td style="background-color: #F4F2F3; text-align: right;">
-                        套餐包含时长：
-                    </td>
-                    <td>
-                        <span id="car_meal_time"></span>
-                    </td>
-                </tr>
-                <tr style="display:none;">
-                    <td style="background-color: #F4F2F3; text-align: right;">
-                        超出套餐里程费：
-                    </td>
-                    <td>
-                        <span id="car_go_away_price"></span>
-                    </td>
-              
-                    <td style="background-color: #F4F2F3; text-align: right;">
-                        超出套餐时长费：
-                    </td>
-                    <td>
-                        <span id="car_go_time_price"></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="background-color: #F4F2F3; text-align: right;">
-                        备注：
-                    </td>
-                    <td colspan="3">
-                        <span id="car_rem"></span>
-                    </td>
-                </tr>
-               
-            </table>
-            <div style="width: 219px; margin: 30px auto;">
-               
-                <div id="btn_rest" class="rest" style="margin-left: 40px; float: left;">
-                    返 回</div>
+        <div id="container">
+            <div id="content" style="overflow-y: auto;">
+                <table width="100%" cellpadding="0" cellspacing="0">
+                    <input class="input" style="width: 150px;" id="car_pk" type="hidden" value="<%=edit_pk %>" />
+
+                    <tr>
+                        <td style="background-color: #F4F2F3; text-align: right;">车型：
+                        </td>
+                        <td>
+                            <span id="car_name"></span>
+                        </td>
+
+                        <td style="background-color: #F4F2F3; text-align: right;">图片：
+                        </td>
+                        <td>
+                            <span id="car_img_span"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: #F4F2F3; text-align: right;">起租价：
+                        </td>
+                        <td>
+                            <span id="car_start_price"></span>
+                        </td>
+                        <td style="background-color: #F4F2F3; text-align: right;">起租价包含里程：
+                        </td>
+                        <td>
+                            <span id="car_meal_away"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: #F4F2F3; text-align: right;">里程费：
+                        </td>
+                        <td>
+                            <span id="car_away_price"></span>
+                        </td>
+
+                        <td style="background-color: #F4F2F3; text-align: right;">时长费：
+                        </td>
+                        <td>
+                            <span id="car_time_price"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: #F4F2F3; text-align: right;">远途费：
+                        </td>
+                        <td>
+                            <span id="car_far_price"></span>
+                        </td>
+
+                        <td style="background-color: #F4F2F3; text-align: right;">远途标准：
+                        </td>
+                        <td>
+                            <span id="car_far_away"></span>
+                        </td>
+                    </tr>
+                    <tr style="display: none;">
+                        <td style="background-color: #F4F2F3; text-align: right;">套餐价：
+                        </td>
+                        <td colspan="3">
+                            <span id="car_meal_price"></span>
+                        </td>
+                    </tr>
+                    <tr style="display: none;">
+
+
+                        <td style="background-color: #F4F2F3; text-align: right;">套餐包含时长：
+                        </td>
+                        <td>
+                            <span id="car_meal_time"></span>
+                        </td>
+                    </tr>
+                    <tr style="display: none;">
+                        <td style="background-color: #F4F2F3; text-align: right;">超出套餐里程费：
+                        </td>
+                        <td>
+                            <span id="car_go_away_price"></span>
+                        </td>
+
+                        <td style="background-color: #F4F2F3; text-align: right;">超出套餐时长费：
+                        </td>
+                        <td>
+                            <span id="car_go_time_price"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: #F4F2F3; text-align: right;">备注：
+                        </td>
+                        <td colspan="3">
+                            <span id="car_rem"></span>
+                        </td>
+                    </tr>
+
+                </table>
+                <div style="width: 219px; margin: 30px auto;">
+
+                    <div id="btn_rest" class="rest" style="margin-left: 40px; float: left;">
+                        返 回
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div id="iframe_Mask" style="background: #333333; width: 100%; height: 100%; left: 0;
-        top: 0; position: absolute; z-index: 9999; background-color: Gray; filter: alpha(opacity=80);
-        -moz-opacity: 0.5; opacity: 0.5;" name="iframe_Mask">
-    </div>
-    <div id="divload" style="z-index: 10000; border: solid 1px #B68A07; position: absolute;
-        left: 40%; top: 45%; background-color: #ffffdd;">
-        <table class="noborder" width="150px" height="50px">
-            <tr>
-                <td>
-                    <table class="noborder">
-                        <tr>
-                            <td align="right">
-                                <img alt="" src="../images/loading.gif" />
-                            </td>
-                            <td align="left">
-                                &nbsp;&nbsp;正在加载...
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
-    </div>
+        <div id="iframe_Mask" style="background: #333333; width: 100%; height: 100%; left: 0; top: 0; position: absolute; z-index: 9999; background-color: Gray; filter: alpha(opacity=80); -moz-opacity: 0.5; opacity: 0.5;"
+            name="iframe_Mask">
+        </div>
+        <div id="divload" style="z-index: 10000; border: solid 1px #B68A07; position: absolute; left: 40%; top: 45%; background-color: #ffffdd;">
+            <table class="noborder" width="150px" height="50px">
+                <tr>
+                    <td>
+                        <table class="noborder">
+                            <tr>
+                                <td align="right">
+                                    <img alt="" src="../images/loading.gif" />
+                                </td>
+                                <td align="left">&nbsp;&nbsp;正在加载...
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </form>
 
     <script type="text/javascript">
 
         var pageHeight = getClientHeight();
         var pageWidth = getClientWidth();
-        $(document).ready(function() {
+        $(document).ready(function () {
             $("#content").height(pageHeight - 2);
-           
-            $("#btn_rest").click(function() {
+
+            $("#btn_rest").click(function () {
                 parent.closePop();
             });
             if ("<%=edit_pk %>" != "") {
@@ -227,13 +209,13 @@
                     type: "post",
                     data: { com: "get_car_info", car_pk: "<%=edit_pk %>", c: new Date().getTime() },
                     dataType: "json",
-                    error: function(err) {
+                    error: function (err) {
                         $("#iframe_Mask").hide(); $("#divload").hide();
                         Popalert("请求错误！");
                     },
-                    success: function(da) {
+                    success: function (da) {
                         if (da != null) {
-                            var info = da.Table[0];                          
+                            var info = da.Table[0];
                             $("#car_name").html(info.car_name);
                             $("#car_start_price").html(info.car_start_price + "元");
                             $("#car_away_price").html(info.car_away_price + "元/公里");
@@ -246,7 +228,7 @@
                             $("#car_go_away_price").html(info.car_go_away_price + "元/公里");
                             $("#car_go_time_price").html(info.car_go_time_price + "元/分钟");
                             $("#car_rem").html(textdecode1(info.car_rem));
-                        
+
                             if (info.car_img != "") $("#car_img_span").html("<img src='" + info.car_img + "' align=\"absmiddle\" style=\" border:solid 1px #ccc; max-height:32px; max-width:100px;\" />");
 
                         }
@@ -263,15 +245,15 @@
                 $("#divload").hide();
             }
         });
-        KindEditor.ready(function(K) {
+        KindEditor.ready(function (K) {
             var editor = K.editor({
                 allowFileManager: false
             });
-            K('#car_img_button').click(function() {
-                editor.loadPlugin('image', function() {
+            K('#car_img_button').click(function () {
+                editor.loadPlugin('image', function () {
                     editor.plugin.imageDialog({
                         showRemote: false,
-                        clickFn: function(url, title, width, height, border, align) {
+                        clickFn: function (url, title, width, height, border, align) {
                             K('#car_img').val(url);
                             editor.hideDialog();
                             $("#car_img_span").html("<img src='" + url + "' align=\"absmiddle\" style=\" border:solid 1px #ccc; max-height:32px; max-width:100px;\" />");
@@ -280,7 +262,7 @@
                     });
                 });
             });
-           
+
         });
         function closePop() {
             $("#iframe_Mask").fadeOut();
