@@ -95,10 +95,13 @@
         });
         function check_form() {           
             if ($("#Text1").val() == "") {
-                Popalert("请输入用户名！");
+                //Popalert("请输入用户名！");
+                Popalert("please inout your username.");
                 return false;
             } else if ($("#Text2").val() == "") {
-                Popalert("请输入密码！"); return false;
+                //Popalert("请输入密码！");
+                Popalert("please input your password.");
+                return false;
             }
             $("#Button1").click();
             return true;
